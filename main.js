@@ -92,25 +92,31 @@ console.log(sumEveryOther(...[11, 3, 12])); // si se le pasa un array para sumar
 console.log(sumEveryOther(...numArr));
 console.log(sumEveryOther(numArr)); //al no utilizar SPREAD solo devuelve el array
 
-// TODO: REVISAR hacer el mismo codigo comentado pero con un FILTER-----------------
-
 // Escribe una función llamada addOnlyNums que pueda recibir cualquier número de argumentos (incluyendo números y strings y retorne la suma solo de los números.
 // addOnlyNums(1, 'perro', 2, 4); //7
+
+// VERSION 1:
 
 // function addOnlyNums(...args) {
 //   const onlyNums = [];
 //   for (const elemento of args) {
 //     if (typeof elemento === "number") {
-  
 //       onlyNums.push(elemento);
 //     }
 //   }
 //   return onlyNums.reduce((a, b) => a + b);
 // }
 
-// console.log(addOnlyNums(1, "perro", 2, 4));
+// console.log(addOnlyNums(1, "perro", 2, 4));//7
 
-// TODO: -----------------------------
+// VERSION 2:
+
+function addOnlyNums(...args) {
+    const onlyNums = args.filter( arg => typeof arg === "number" )
+        return onlyNums.reduce((a, b) => a + b)
+}
+
+console.log(addOnlyNums(1, "perro", 2, 4)); //7
 
 //OK // Escribe una función llamada countTheArgs que pueda recibir cualquier número de argumentos y devuelva un número que indique cuántos argumentos ha recibido.
 // countTheArgs('gato', 'perro'); //2
@@ -134,3 +140,5 @@ function combineTwoArrays(arr1, arr2) {
 }
 
 console.log(combineTwoArrays(arrLetters, arrNumbers));
+
+
